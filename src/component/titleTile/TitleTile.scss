@@ -1,0 +1,9 @@
+@import "src/parameters";
+@import "src/font";
+@import "src/mixins";
+
+.titleTile{
+    margin: 10px 0 20px 0;
+    color: $color-gray;
+    font-size: $font-size-the-biggest;
+}

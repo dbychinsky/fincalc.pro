@@ -1,0 +1,9 @@
+@import "src/parameters";
+
+.label {
+    margin-bottom: 5px;
+    display: block;
+
+    font-size: $font-size-smaller;
+    color: $color-gray;
+}

@@ -1,0 +1,49 @@
+@import "../../parameters";
+@import "../../font";
+
+.tabsLoan {
+    margin: 20px 0 30px;
+
+    .tabHeader {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 10px 10px 10px;
+            text-align: center;
+
+            border: 1px solid $color-gray-light;
+            background-color: $color-white;
+            font-size: $font-size-smaller;
+            border-radius: $border-radius $border-radius 0 0;
+            cursor: pointer;
+
+            &:first-child {
+                width: 40%;
+            }
+
+            &:last-child {
+                width: 60%;
+            }
+
+            &.active {
+                border-bottom: none;
+                color: $color-green;
+                @include fontBold;
+            }
+        }
+    }
+
+    .tabBody {
+        box-sizing: border-box;
+        padding: 10px 10px 10px;
+
+        background-color: $color-white;
+        border: 1px solid $color-gray-light;
+        border-top: none;
+    }
+
+}

@@ -1,0 +1,36 @@
+//Цвета
+$color-black: #000000;
+$color-white: #ffffff;
+$color-white-dark: #f0f0f0;
+$color-black-light: #333333;
+$color-gray: #555555;
+$color-gray-light: #E6E6E6;
+$color-gray-lightest: #fafafa;
+$color-red: #f78f8f;
+$color-green: #6ea783;
+$color-purple: #192d51;
+$color-back-tile: rgba(255, 255, 255, 1);
+$color-background: #243b64;
+
+//Тень
+$box-shadow-main: 0 1px 3px -2px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+$box-shadow-main-revert: inset 0 1px 3px -2px rgb(0 0 0 / 12%), inset 0 1px 2px rgb(0 0 0 / 24%);
+
+//Размер шрифта
+$font-size-the-smallest: 0.625em;
+$font-size-smallest: 0.75em;
+$font-size-smaller: 0.875em;
+$font-size-normal: 1em;
+$font-size-bigger: 1.125em;
+$font-size-biggest: 1.25em;
+$font-size-the-biggest: 1.375em;
+$font-size-for-mainPage: 2.375em;
+$font-size-title: 2em;
+
+
+//Граница
+$border-main: 1px solid $color-gray-light;
+$border-radius: 3px;
+
+//Размеры
+$height-navigation: 65px;

@@ -1,0 +1,18 @@
+@import "src/parameters";
+
+.footer {
+    $heightFooter: 80px;
+    height: $heightFooter;
+    min-height: $heightFooter;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-black-light;
+
+    p {
+        color: $color-white;
+        margin: 0;
+    }
+}

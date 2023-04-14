@@ -1,0 +1,27 @@
+@import "src/parameters";
+@import "src/font";
+@import "src/mixins";
+@import "../component/titlePage/TitlePage";
+@import "src/component/navigation/Navigation";
+
+.depositPage {
+    background-color: $color-background;
+
+    padding-top: 10px;
+    padding-bottom: $height-navigation;
+    position: relative;
+
+    ~ .navigation {
+        @include navigationOtherPage;
+    }
+
+    .depositEnterData{
+        @include tile;
+    }
+
+    p {
+        font-size: $font-size-normal;
+        margin-bottom: 300px;
+    }
+
+}

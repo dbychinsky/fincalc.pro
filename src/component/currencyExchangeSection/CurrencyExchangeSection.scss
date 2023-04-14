@@ -1,0 +1,150 @@
+@import "src/parameters";
+@import "src/font";
+@import "src/mixins";
+
+.currencyExchangeSection {
+    @include tile;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        margin-bottom: 30px;
+
+        .label {
+            display: none;
+        }
+
+        .formRow {
+            margin: 0;
+
+            .currency {
+                display: inline-block;
+                vertical-align: bottom;
+                margin: 0 10px 0 0;
+            }
+
+            &.amount {
+                display: inline-block;
+                vertical-align: bottom;
+                flex-grow: 1;
+
+                .inputTextFieldEmptyMask {
+                    .inputField {
+                        padding: 0;
+                        position: relative;
+                        border: none;
+
+                        text-align: right;
+                        font-size: $font-size-title;
+                    }
+
+                    span {
+                        font-size: $font-size-title;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        width: 100%;
+        position: relative;
+        margin: 0 -10px -10px;
+        padding: 30px 10px 30px 10px;
+
+        background-color: $color-white-dark;
+        border-radius: $border-radius;
+
+        .iconExchange {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -15px;
+            left: 50%;
+            margin-left: -15px;
+
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+            box-shadow: $box-shadow-main;
+            background: linear-gradient(180deg, rgba(242, 102, 188, 1) 0%, rgba(113, 80, 137, 1) 44%, rgba(32, 64, 111, 1) 100%);
+            color: $color-white;
+        }
+
+
+        .result {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: stretch;
+            margin-bottom: 7px;
+
+            &.equal {
+                display: none;
+            }
+
+            span {
+                display: inline-block;
+
+                &:first-child {
+                    @include fontBold;
+                    font-size: $font-size-smallest;
+                    padding-left: 20px;
+
+                    background-repeat: no-repeat;
+
+                    &.USD {
+                        background-image: url("../../../public/USD.svg");
+                        background-size: 16px;
+                    }
+
+                    &.EUR {
+                        background-image: url("../../../public/EUR.svg");
+                        background-size: 16px;
+                    }
+
+                    &.BYN {
+                        background-image: url("../../../public/BYN.svg");
+                        background-size: 16px;
+                    }
+
+                    &.RUB {
+                        background-image: url("../../../public/RUB.svg");
+                        background-size: 16px;
+                    }
+                    &.PLN {
+                        background-image: url("../../../public/PLN.svg");
+                        background-size: 16px;
+                    }
+
+                }
+
+                &:last-child {
+                    flex-grow: 1;
+                    padding-right: 5px;
+                    font-size: $font-size-biggest;
+                    text-align: right;
+                }
+
+            }
+        }
+    }
+
+    .errorText {
+        margin: 10px 0;
+
+        color: $color-red;
+        font-size: $font-size-smaller;
+    }
+}

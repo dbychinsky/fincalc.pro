@@ -1,0 +1,17 @@
+@import "parameters";
+@import "font";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    @include fontMedium;
+    #root {
+        height: 100%;
+    }
+}
+

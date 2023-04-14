@@ -1,0 +1,84 @@
+@import "../../parameters";
+@import "../../mixins";
+
+.currencyRate {
+    @include tile;
+
+    position: relative;
+
+    .titleTile {
+        max-width: 80%;
+    }
+
+    .siteNBRB {
+        position: absolute;
+        top: 23px;
+        right: 20px;
+
+        color: $color-green;
+        font-size: $font-size-the-biggest;
+    }
+
+    .value {
+        font-size: $font-size-smaller;
+        border-bottom: 1px solid $color-gray-light;
+
+        padding: 5px 0;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        @mixin valueTile($background) {
+            .icon {
+                display: block;
+                width: 35px;
+                height: 25px;
+
+                background: $background no-repeat left center;
+            }
+            .currency {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                span {
+                    &:nth-child(1) {
+                        font-size: $font-size-bigger;
+                        color: $color-gray;
+                    }
+
+                    &:nth-child(2) {
+                        font-size: $font-size-smallest;
+                        color: $color-gray;
+                        @include fontBold;
+                    }
+                }
+            }
+            .amount {
+                display: block;
+                font-size: $font-size-the-biggest;
+                color: $color-gray;
+            }
+        }
+
+        &.USD {
+            @include valueTile(url("../../../public/USD.svg"));
+        }
+
+        &.EUR {
+            @include valueTile(url("../../../public/EUR.svg"));
+        }
+
+        &.RUB {
+            @include valueTile(url("../../../public/RUB.svg"));
+        }
+        &.PLN {
+            @include valueTile(url("../../../public/PLN.svg"));
+        }
+    }
+}

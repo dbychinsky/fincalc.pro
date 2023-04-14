@@ -1,0 +1,12 @@
+@import "src/parameters";
+@import "src/font";
+
+.titlePage {
+    @include fontBold;
+    @include fontLogotype;
+    font-size: $font-size-title;
+    color: $color-white;
+
+    min-height: 42px;
+    margin: 40px 10px 41px 10px;
+}

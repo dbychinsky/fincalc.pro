@@ -1,0 +1,49 @@
+@import "../../parameters";
+@import "../../font";
+
+.inputTextFieldEmptyMask {
+    position: relative;
+
+    .inputField {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        @include fontMedium;
+        box-sizing: border-box;
+        padding: 0 10px 5px 10px;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        background: none;
+        color: $color-gray;
+        font-size: $font-size-bigger;
+        border: none;
+        border-bottom: 1px solid $color-gray-light;
+
+        &:focus {
+            outline: none;
+            background: $color-white;
+        }
+    }
+
+    &.fill {
+        .inputField {
+            background: $color-white;
+        }
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+
+        color: $color-gray;
+        font-size: $font-size-bigger;
+    }
+}

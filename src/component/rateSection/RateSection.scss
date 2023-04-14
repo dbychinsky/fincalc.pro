@@ -1,0 +1,184 @@
+@import "src/parameters";
+@import "src/font";
+
+@mixin iconRate {
+    display: inline-block;
+    vertical-align: baseline;
+
+    width: 13px;
+    height: 10px;
+}
+
+.rateSection {
+    .errorText {
+        width: 100%;
+
+        text-align: center;
+        font-size: $font-size-smaller;
+        color: $color-red;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+@mixin rateSectionMainPage {
+    .errorText {
+        width: 200px;
+    }
+
+    .siteNBRB {
+        display: none;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        .rateRow {
+            box-sizing: border-box;
+            padding: 0 15px 5px 0px;
+
+            position: relative;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &.rateToTop {
+                &::after {
+                    @include iconRate;
+
+                    content: '';
+                    background: url("./../../../public/currencyUp.svg") center no-repeat;
+                    background-size: 170%;
+
+                    margin-left: 2px;
+                }
+
+            }
+
+            &.noChange {
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 3px;
+
+                    width: 4px;
+                    height: 4px;
+
+                    border-radius: 50%;
+                    background-color: $color-white;
+                }
+            }
+
+            &.rateToBottom {
+                &::after {
+                    @include iconRate;
+
+                    content: '';
+                    background: url("./../../../public/currencyDown.svg") center no-repeat;
+                    background-size: 170%;
+
+                    margin-left: 2px;
+                }
+            }
+
+
+            .date {
+                color: $color-white;
+                font-size: $font-size-the-smallest;
+            }
+
+            .separate {
+                color: $color-white;
+                font-size: $font-size-the-smallest;
+                padding: 0 2px;
+            }
+
+            .rate {
+                color: $color-white;
+                font-size: $font-size-smaller
+            }
+        }
+    }
+}
+
+
+//@mixin rateSectionOtherPages {
+//    ul {
+//        display: flex;
+//        flex-direction: row;
+//        justify-content: stretch;
+//
+//        background-color: $color-white;
+//
+//        .rateRow {
+//            text-align: center;
+//            flex-grow: 1;
+//
+//            span {
+//                display: inline-block;
+//                vertical-align: baseline;
+//            }
+//
+//
+//            &.rateToTop {
+//                &::after {
+//                    @include iconRate;
+//
+//                    content: '';
+//                    background: url("./../../../public/currencyUp.svg") center no-repeat;
+//                    background-size: 170%;
+//
+//                    margin-left: 2px;
+//                }
+//
+//            }
+//
+//            &.noChange {
+//                &::after {
+//                    @include iconRate;
+//
+//                    content: '';
+//                    background: url("./../../../public/currencyNoChange.svg") center no-repeat;
+//                    background-size: 120%;
+//
+//                    margin-left: 5px;
+//                }
+//            }
+//
+//            &.rateToBottom {
+//                &::after {
+//                    @include iconRate;
+//
+//                    content: '';
+//                    background: url("./../../../public/currencyDown.svg") center no-repeat;
+//                    background-size: 170%;
+//
+//                    margin-left: 2px;
+//                }
+//            }
+//
+//            .date {
+//                color: $color-gray;
+//                font-size: $font-size-smallest;
+//            }
+//
+//            .separate {
+//                color: $color-gray;
+//                padding: 0 2px;
+//            }
+//
+//            .rate {
+//                color: $color-gray;
+//                font-size: $font-size-bigger;
+//            }
+//        }
+//    }
+//}

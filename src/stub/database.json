@@ -1,0 +1,19 @@
+{
+  "rate": [
+    {
+      "Cur_ID": 431,
+      "Date": "2023-03-22T00:00:00",
+      "Cur_OfficialRate": 2.8605
+    },
+    {
+      "Cur_ID": 431,
+      "Date": "2023-03-23T00:00:00",
+      "Cur_OfficialRate": 2.8606
+    },
+    {
+      "Cur_ID": 431,
+      "Date": "2023-03-24T00:00:00",
+      "Cur_OfficialRate": 2.8602
+    }
+  ]
+}

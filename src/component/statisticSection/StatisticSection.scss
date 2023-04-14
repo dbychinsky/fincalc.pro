@@ -1,0 +1,12 @@
+@import "src/parameters";
+@import "src/mixins";
+@import "src/font";
+
+.statisticSection {
+    position: relative;
+    z-index: 2;
+    @include tile;
+
+
+
+}

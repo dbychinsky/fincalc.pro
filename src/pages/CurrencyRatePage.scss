@@ -1,0 +1,20 @@
+@import "../parameters";
+@import "../mixins";
+@import "../component/titlePage/TitlePage";
+@import "src/component/navigation/Navigation";
+@import "src/component/rateSection/RateSection";
+
+.currencyRatePage {
+    background-color: $color-background;
+    padding-bottom: $height-navigation;
+    padding-top: 1px;
+
+    ~ .navigation {
+        @include navigationOtherPage;
+    }
+
+    .tspan {
+        font-size: 10px;
+    }
+
+}

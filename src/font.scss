@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Nunito:wght@300;400;600&display=swap');
+
+@mixin fontLight {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+
+@mixin fontMedium {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+}
+
+@mixin fontBold {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+@mixin fontLogotype {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+}

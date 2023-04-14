@@ -1,0 +1,72 @@
+@import "./src/parameters";
+@import "./src/font";
+
+@mixin fieldRow($color) {
+    color: $color;
+    font-size: $font-size-bigger;
+
+    display: inline-block;
+    vertical-align: baseline;
+
+    .field {
+        @include fontBold;
+        display: inline-block;
+        vertical-align: baseline;
+    }
+
+    .curr {
+        display: inline-block;
+        vertical-align: baseline;
+
+        font-size: $font-size-the-smallest;
+        color: $color-black-light;
+
+        padding-left: 5px;
+    }
+}
+
+.formRow {
+    margin-bottom: 12px;
+
+    .positive {
+        @include fieldRow($color-green);
+    }
+
+    .separator {
+        display: inline-block;
+        vertical-align: baseline;
+        padding: 0 5px;
+    }
+
+    .negative {
+        @include fieldRow($color-red);
+    }
+
+    .neutral {
+        @include fieldRow($color-black-light);
+    }
+
+    &.date {
+        input {
+            @include fontMedium;
+            box-sizing: border-box;
+            padding: 0 10px 5px 10px;
+            width: 100%;
+
+            background: $color-white;
+            color: $color-gray;
+            font-size: $font-size-bigger;
+            border: none;
+            border-bottom: 1px solid $color-gray-light;
+
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid $color-gray;
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

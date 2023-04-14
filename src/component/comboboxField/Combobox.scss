@@ -1,0 +1,20 @@
+@import "./src/parameters";
+@import "./src/font";
+
+select {
+    @include fontMedium;
+    box-sizing: border-box;
+    padding: 0 10px 5px 10px;
+    width: 100%;
+
+    background: $color-white;
+    color: $color-gray;
+    font-size: $font-size-normal;
+    border: none;
+    border-bottom: 1px solid $color-gray-light;
+
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid $color-gray;
+    }
+}

@@ -1,0 +1,30 @@
+@import "src/parameters";
+@import "src/font";
+@import "src/mixins";
+@import "../component/titlePage/TitlePage";
+@import "src/component/navigation/Navigation";
+
+.loanPage {
+    background-color: $color-background;
+
+    padding-top: 10px;
+    padding-bottom: $height-navigation;
+    position: relative;
+
+    ~ .navigation {
+        @include navigationOtherPage;
+    }
+
+    .wrapper {
+        @include tile;
+    }
+
+    .description {
+        font-size: $font-size-smaller;
+        color: $color-green;
+
+        span {
+            font-size: $font-size-smallest;
+        }
+    }
+}

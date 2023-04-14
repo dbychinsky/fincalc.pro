@@ -1,0 +1,24 @@
+@import "parameters";
+@import "font";
+
+//Миксины для страниц
+
+@mixin backgroundColorPage {
+    background: rgb(242, 102, 188);
+    background: linear-gradient(180deg, rgba(242, 102, 188, 1) 0%, rgba(113, 80, 137, 1) 44%, rgba(32, 64, 111, 1) 100%);
+}
+
+@mixin tile {
+    box-sizing: border-box;
+    margin: 0 10px 10px;
+    padding: 10px;
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 3px 1px -2px rgba(0, 0, 0, 0.01), 0 1px 5px 0 rgba(0, 0, 0, 0.01);
+    background-color: $color-back-tile;
+    border-radius: $border-radius;
+}
+
+@mixin pageTitleMix($backImage, $backSize) {
+    background: $backImage left center no-repeat;
+    background-size: $backSize;
+}

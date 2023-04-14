@@ -1,0 +1,59 @@
+@import "src/component/navigation/Navigation";
+@import "src/component/header/Header";
+@import "src/component/rateSection/RateSection";
+@import "src/mixins";
+
+.mainPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    @include backgroundColorPage;
+
+    ~ .navigation {
+        //@include navigationMainPage;
+        @include navigationOtherPage;
+    }
+
+    .wrapper {
+        position: relative;
+        top: -20%;
+
+        .logotype {
+            @include fontLogotype;
+            color: $color-white;
+
+            position: relative;
+            width: 135px;
+            margin: 0 auto;
+
+            span {
+                &:first-child {
+                    opacity: 0.4;
+                    font-size: 10em;
+                }
+
+                &:last-child {
+                    position: relative;
+                    left: -50px;
+                    font-size: 9em;
+                }
+            }
+        }
+
+        .logoText {
+            @include fontLogotype;
+
+            font-size: 1.9em;
+            color: $color-white;
+        }
+    }
+
+    .rateSection {
+        @include rateSectionMainPage;
+    }
+
+}

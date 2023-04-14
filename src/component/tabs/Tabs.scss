@@ -1,0 +1,27 @@
+@import "src/parameters";
+
+.tabs {
+    box-sizing: border-box;
+    background-color: white;
+    margin-bottom: 20px;
+
+    .tabHeader {
+        margin: 0 0 20px 0;
+        padding: 0 10px;
+        list-style: none;
+
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: right;
+
+        li {
+
+
+
+
+
+        }
+    }
+}

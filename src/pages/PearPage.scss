@@ -1,0 +1,15 @@
+@import "src/parameters";
+@import "src/mixins";
+@import "src/component/navigation/Navigation";
+
+.pearPage {
+    background-color: $color-background;
+
+    padding-top: 10px;
+    padding-bottom: $height-navigation;
+
+    ~ .navigation {
+        @include navigationOtherPage;
+    }
+
+}
