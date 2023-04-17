@@ -1,9 +1,6 @@
 import React, {useContext} from 'react';
 import {
-    Legend, ResponsiveContainer, AreaChart,
-    Tooltip,
-    XAxis,
-    YAxis, Area
+    Legend, ResponsiveContainer, AreaChart, Tooltip, XAxis, YAxis, Area
 } from "recharts";
 import "./AreaChartComponent.scss";
 import {observer} from "mobx-react";

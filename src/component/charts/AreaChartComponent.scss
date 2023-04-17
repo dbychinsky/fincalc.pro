@@ -23,10 +23,39 @@
         margin-bottom: 30px;
     }
 
-
     .recharts-tooltip-wrapper {
+        &:focus-visible {
+            outline: none !important;
+        }
+
         .recharts-default-tooltip {
             background-color: #1d5d90 !important;
+            border: none !important;
+            box-shadow: $box-shadow-main !important;
+            border-radius: $border-radius !important;
+
+            .recharts-tooltip-label {
+                color: $color-white;
+            }
+        }
+
+        .recharts-tooltip-item {
+            span {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .recharts-tooltip-item-name {
+                width: 35px;
+            }
+            .recharts-tooltip-item-separator{
+                width: 10px;
+            }
+
+            .recharts-tooltip-item-value {
+                color: $color-white;
+            }
+
         }
     }
 
