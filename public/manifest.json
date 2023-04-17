@@ -1,6 +1,6 @@
 {
-  "short_name": "МФК",
-  "name": "Loan calculator",
+  "short_name": "FinCalc",
+  "name": "Financial Calculator",
   "icons": [
     {
       "src": "favicon.ico",
