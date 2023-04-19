@@ -15,13 +15,6 @@ const Navigation = () => {
                 <span>Курсы</span>
             </NavLink>
             </li>
-            <li><NavLink to={RouterPathList.PEAR_PAGE}
-                         className="pear"
-                         title="PEAR_PAGE">
-                <span><CiBadgeDollar/></span>
-                <span>Рассрочки</span>
-            </NavLink>
-            </li>
             <li><NavLink to={RouterPathList.LOAN_PAGE}
                          className="loan"
                          title="LOAN_PAGE">
@@ -36,7 +29,13 @@ const Navigation = () => {
                 <span>Депозиты</span>
             </NavLink>
             </li>
-
+            <li><NavLink to={RouterPathList.PEAR_PAGE}
+                         className="pear"
+                         title="PEAR_PAGE">
+                <span><CiBadgeDollar/></span>
+                <span>Рассрочки</span>
+            </NavLink>
+            </li>
         </ul>
     );
 };

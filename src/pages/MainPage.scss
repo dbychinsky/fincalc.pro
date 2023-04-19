@@ -13,14 +13,17 @@
 
     @include backgroundColorPage;
 
+    .navigation {
+        @include navigationMainPage;
+    }
+
     ~ .navigation {
-        //@include navigationMainPage;
-        @include navigationOtherPage;
+        display: none;
     }
 
     .wrapper {
         position: relative;
-        top: -20%;
+        top: -10%;
 
         .logotype {
             @include fontLogotype;
