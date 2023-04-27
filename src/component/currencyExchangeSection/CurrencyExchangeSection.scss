@@ -34,21 +34,13 @@
             &.amount {
                 display: inline-block;
                 vertical-align: bottom;
+                text-align: right;
                 flex-grow: 1;
 
-                .inputTextFieldEmptyMask {
-                    .inputField {
-                        padding: 0;
-                        position: relative;
-                        border: none;
-
-                        text-align: right;
-                        font-size: $font-size-title;
-                    }
-
-                    span {
-                        font-size: $font-size-title;
-                    }
+                .inputTextField {
+                    width: 90%;
+                    text-align: right;
+                    font-size: $font-size-title;
                 }
             }
         }
@@ -123,6 +115,7 @@
                         background-image: url("../../../public/RUB.svg");
                         background-size: 16px;
                     }
+
                     &.PLN {
                         background-image: url("../../../public/PLN.svg");
                         background-size: 16px;

@@ -8,6 +8,7 @@ import TitleTile from "../titleTile/TitleTile";
 import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
 import {CiRepeat} from "react-icons/ci";
 import InputTextFieldEmptyMask from "../inputFieldEmptyMask/InputFieldEmptyMask";
+import InputTextField from "../inputField/InputField";
 
 /**
  * Компонент конвертации валюты
@@ -37,13 +38,21 @@ const CurrencyExchangeSection = observer(() => {
                 <FormRow label={""}
                          className="amount"
                          children={
-                             <InputTextFieldEmptyMask
+                             // <InputTextFieldEmptyMask
+                             //     value={currencyRateStore.calcAmount}
+                             //     changeHandler={currencyRateStore.changeHandlerValue}
+                             //     name="amountBYN"
+                             //     type="string"
+                             //     afterText="0"
+                             // />
+
+                             <InputTextField
                                  value={currencyRateStore.calcAmount}
                                  changeHandler={currencyRateStore.changeHandlerValue}
                                  name="amountBYN"
-                                 type="string"
-                                 afterText="0"
-                             />}
+                                 type="number"
+                             />
+                         }
                 />
             </div>
             {currencyRateStore.currencyListResult?.map((

@@ -55,6 +55,8 @@
         }
 
         .table {
+            overflow: hidden;
+
             .headerTable {
                 @include fontBold;
                 font-size: $font-size-smaller;
@@ -64,23 +66,35 @@
             .tableCell {
                 display: inline-block;
                 vertical-align: baseline;
-                width: 23%;
                 padding: 5px 5px 5px 0;
 
+                &.month {
+                    width: 16%;
+                }
 
-                &:last-child {
+                &.percent {
+                    width: 24%;
+                }
+
+                &.loan {
+                    width: 25%;
+                }
+
+                &.payment {
+                    width: 28%;
                     text-align: right;
                 }
             }
 
             .tableBody {
-                &.close {
-                    max-height: 102px;
-                    overflow: hidden;
-                }
-
                 position: relative;
                 max-height: initial;
+                transition: max-height 1s ease;
+
+                &.close {
+                    max-height: 115px;
+                    overflow: hidden;
+                }
 
                 .tableRow {
                     border-bottom: 1px solid $color-gray-light;
@@ -100,16 +114,25 @@
         }
 
         .buttonOpen {
-            background: $color-white;
-
             position: absolute;
-            bottom: -23px;
+            bottom: -33px;
+
             left: 132px;
             z-index: 3;
 
             border-radius: 50%;
             padding: 5px 5px 2px 5px;
             border: 1px solid $color-gray-light;
+            background: $color-blue;
+            cursor: pointer;
+
+            svg {
+                fill: $color-white;
+            }
+
+            &.close {
+                bottom: -23px;
+            }
         }
     }
 

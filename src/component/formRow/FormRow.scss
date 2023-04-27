@@ -50,18 +50,18 @@
         input {
             @include fontMedium;
             box-sizing: border-box;
-            padding: 0 10px 5px 10px;
+            padding: 10px;
             width: 100%;
 
             background: $color-white;
             color: $color-gray;
             font-size: $font-size-bigger;
-            border: none;
-            border-bottom: 1px solid $color-gray-light;
+            border: 1px solid $color-gray-light;
+            border-radius: $border-radius;
 
             &:focus {
                 outline: none;
-                border-bottom: 1px solid $color-gray;
+                border: 1px solid $color-blue;
             }
         }
     }

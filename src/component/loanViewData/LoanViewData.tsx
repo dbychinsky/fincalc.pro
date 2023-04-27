@@ -60,26 +60,29 @@ const LoanViewData = observer(() => {
                             tabSecond={
                                 <div className="differ">
                                     <p className="title"><span>Месяц равен 30 дням</span></p>
-                                    <button className="buttonOpen" onClick={showFullTable}><BiExpandVertical/></button>
+                                    <button className={`buttonOpen  ${isOpenTable ? 'close' : 'open'}`}
+                                            onClick={showFullTable}><BiExpandVertical/>
+                                    </button>
 
 
                                     <div className="table">
                                         <div className="headerTable">
-                                            <span className="tableCell">Месяц</span>
-                                            <span className="tableCell">Процент</span>
-                                            <span className="tableCell">Долг</span>
-                                            <span className="tableCell">Платеж</span>
+                                            <span className="tableCell month">Месяц</span>
+                                            <span className="tableCell percent">Процент</span>
+                                            <span className="tableCell loan">Долг</span>
+                                            <span className="tableCell payment">Платеж</span>
                                         </div>
 
                                         <div className={`tableBody ${isOpenTable ? 'close' : 'open'}`}>
 
                                             {loanStore.loanValuesViewDifferent.map((calc) => (
                                                 <div className="tableRow" key={calc.numberMonth}>
-                                                    <span className="tableCell">{calc.numberMonth}</span>
+                                                    <span className="tableCell month">{calc.numberMonth}</span>
                                                     <span
-                                                        className="tableCell">{calc.payMonthPercents.toFixed(2)}</span>
-                                                    <span className="tableCell">{calc.mainDebt.toFixed(2)}</span>
-                                                    <span className="tableCell">{calc.payMonth.toFixed(2)}</span>
+                                                        className="tableCell percent">{calc.payMonthPercents.toFixed(2)}</span>
+                                                    <span className="tableCell loan">{calc.mainDebt.toFixed(2)}</span>
+                                                    <span
+                                                        className="tableCell payment">{calc.payMonth.toFixed(2)}</span>
                                                 </div>
                                             ))}
                                         </div>
