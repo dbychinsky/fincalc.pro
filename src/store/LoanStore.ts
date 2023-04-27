@@ -1,6 +1,7 @@
 import {makeAutoObservable, runInAction} from "mobx";
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {Loan} from "../model/Loan";
+import {CurrencyListShortName} from "../model/Currency";
 
 type LoanValuesViewDifferent = {
 
@@ -46,6 +47,11 @@ export class LoanStore {
      */
     public loanValuesViewDifferent: LoanValuesViewDifferent[] = [];
 
+    /**
+     * Валюта для кредитов
+     */
+    public currencyValue: string = CurrencyListShortName.USD;
+
 
     /**
      * ВВодимые данные
@@ -57,13 +63,26 @@ export class LoanStore {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         runInAction(() => {
             this.loanValuesEnter = {
                 ...this.loanValuesEnter, [e.target.name]: e.target.value
             }
         });
     };
+
+
+    public changeHandlerCurrency(e: ChangeEvent<HTMLSelectElement>) {
+        runInAction(() => {
+            this.currencyValue = e.target.value;
+        });
+    }
+
+    public changeHandlerCurrencyHandle(value: string) {
+        runInAction(() => {
+            this.currencyValue = value;
+        });
+    }
 
     /**
      * Расчет платежей по аннуитетному принципу

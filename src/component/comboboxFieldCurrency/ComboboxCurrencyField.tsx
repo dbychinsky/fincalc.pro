@@ -1,6 +1,7 @@
 import React, {FC, useContext, useEffect, useRef, useState} from 'react';
 import './ComboboxCurrencyField.scss';
 import {StoreContext} from "../../App";
+import {values} from "mobx";
 
 /**
  * Компонент Combobox
@@ -11,19 +12,22 @@ type IComboboxCurrencyFieldProps = {
      * Возможные значения
      */
     valueList: { id: string, value: string }[],
+    actualStore: any
 }
 
 const ComboboxCurrencyField: FC<IComboboxCurrencyFieldProps> = (
     {
         valueList,
+        actualStore
     }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectValue, setSelectValue] = useState('USD');
+    const [selectValue, setSelectValue] = useState(actualStore.currencyValue);
     const ref = useRef<any>();
-    const currencyRateStore = useContext(StoreContext).currencyRateStore;
+
+    // const currencyRateStore = useContext(StoreContext).currencyRateStore;
 
     const handleOnClick = (value: string) => {
-        currencyRateStore.changeHandlerCurrencyHandle(value);
+        actualStore.changeHandlerCurrencyHandle(value);
         setSelectValue(value);
         setIsOpen(false);
     }
@@ -51,7 +55,7 @@ const ComboboxCurrencyField: FC<IComboboxCurrencyFieldProps> = (
             <button
                 className={`buttonSelect ${selectValue}`}
                 onClick={() => setIsOpen(oldState => !oldState)}>
-                {currencyRateStore.currencyValue}
+                {actualStore.currencyValue}
             </button>
             {isOpen && (
                 <ul className="list">

@@ -6,9 +6,8 @@
 
 .loanPage {
     background-color: $color-background;
-
-    padding-top: 10px;
     padding-bottom: $height-navigation;
+    padding-top: 1px;
     position: relative;
 
     ~ .navigation {

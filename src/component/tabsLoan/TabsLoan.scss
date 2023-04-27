@@ -15,10 +15,10 @@
             padding: 10px 10px 10px;
             text-align: center;
 
-            border: 1px solid $color-gray-light;
-            background-color: $color-white;
             font-size: $font-size-smaller;
-            border-radius: $border-radius $border-radius 0 0;
+            color: $color-gray;
+            background-color: $color-gray-lightest;
+
             cursor: pointer;
 
             &:first-child {
@@ -30,8 +30,9 @@
             }
 
             &.active {
-                border-bottom: none;
-                color: $color-green;
+                background-color: $color-blue;
+                color: $color-white;
+                border-radius: $border-radius;
                 @include fontBold;
             }
         }
@@ -42,8 +43,6 @@
         padding: 10px 10px 10px;
 
         background-color: $color-white;
-        border: 1px solid $color-gray-light;
-        border-top: none;
     }
 
 }

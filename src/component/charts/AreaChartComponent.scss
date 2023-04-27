@@ -4,7 +4,7 @@
 
 .areaChartComponent {
     @include tile;
-    background-color: $color-purple;
+    background-color: $color-blue;
 
     .titleTile {
         color: $color-white;
@@ -67,7 +67,7 @@
     }
 
     .recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line {
-        stroke: $color-purple;
+        stroke: $color-blue;
     }
 
     .recharts-default-legend {

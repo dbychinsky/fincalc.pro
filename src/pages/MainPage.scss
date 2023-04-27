@@ -5,13 +5,30 @@
 
 .mainPage {
     height: 100%;
+
+    background: #20406f;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
 
-    @include backgroundColorPage;
+    //@include backgroundColorPage;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 600px;
+
+        position: absolute;
+        z-index: 1;
+
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background: rgb(242, 102, 188);
+        background: linear-gradient(180deg, rgba(242, 102, 188, 1) 0%, rgba(32, 64, 111, 1) 87%);
+    }
 
     .navigation {
         @include navigationMainPage;
@@ -21,19 +38,25 @@
         display: none;
     }
 
+
     .wrapper {
         position: relative;
-        top: -10%;
+        top: 180px;
 
         .logotype {
-            @include fontLogotype;
             color: $color-white;
+            @include fontLogotype;
 
             position: relative;
+            z-index: 2;
             width: 135px;
             margin: 0 auto;
 
+            height: 120px;
+            line-height: 110px;
+
             span {
+
                 &:first-child {
                     opacity: 0.4;
                     font-size: 10em;
@@ -49,6 +72,9 @@
 
         .logoText {
             @include fontLogotype;
+
+            position: relative;
+            z-index: 2;
 
             font-size: 1.9em;
             color: $color-white;

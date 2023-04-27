@@ -48,17 +48,18 @@ const InputTextFieldEmptyMask: FC<IInputTextFieldEmptyMaskProps> = (
         name,
         afterText
     }) => {
-    const [isEmptyField, setIsEmptyField] = useState(true);
+    const [isEmptyField, setIsEmptyField] = useState<boolean | null>(null);
 
 
     const onChangeHand = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.value === '') {
+        if (e.target.value === '' || e.target.value === null) {
+            debugger
             setIsEmptyField(true);
         } else {
             setIsEmptyField(false);
         }
     }
-
+    console.log(isEmptyField)
     return (
         <div className={`inputTextFieldEmptyMask ${isEmptyField ? 'empty' : 'fill'}`}>
             <input

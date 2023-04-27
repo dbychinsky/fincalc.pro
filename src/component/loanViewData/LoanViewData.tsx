@@ -36,16 +36,22 @@ const LoanViewData = observer(() => {
                                 <div className="annuity">
                                     <div className="static">
                                         <div>
-                                            <span>Ежемесячный платеж:</span>
-                                            <span>{loanStore.loanValuesViewAnnuity?.paymentMonth.toFixed(2)}</span>
+                                            <span className="title">Ежемесячный платеж:</span>
+                                            <span
+                                                className="value">{loanStore.loanValuesViewAnnuity?.paymentMonth.toFixed(2)}</span>
+                                            <span className="currency">{loanStore.currencyValue}</span>
                                         </div>
                                         <div>
-                                            <span>Переплата:</span>
-                                            <span>{loanStore.loanValuesViewAnnuity?.overpayment.toFixed(2)}</span>
+                                            <span className="title">Переплата:</span>
+                                            <span
+                                                className="value">{loanStore.loanValuesViewAnnuity?.overpayment.toFixed(2)}</span>
+                                            <span className="currency">{loanStore.currencyValue}</span>
                                         </div>
                                         <div>
-                                            <span>Общая сумма выплат:</span>
-                                            <span>{loanStore.loanValuesViewAnnuity?.loanAmountPercent.toFixed(2)}</span>
+                                            <span className="title">Общая сумма выплат:</span>
+                                            <span
+                                                className="value">{loanStore.loanValuesViewAnnuity?.loanAmountPercent.toFixed(2)}</span>
+                                            <span className="currency">{loanStore.currencyValue}</span>
                                         </div>
                                     </div>
                                 </div>

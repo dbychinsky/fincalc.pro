@@ -29,6 +29,8 @@
 @mixin rateSectionMainPage {
     position: fixed;
     top: 0;
+    z-index: 2;
+
     .errorText {
         width: 200px;
     }

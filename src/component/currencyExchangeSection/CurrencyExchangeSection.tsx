@@ -31,9 +31,9 @@ const CurrencyExchangeSection = observer(() => {
                 <FormRow label={""}
                          className="currency"
                          children={
-                             <ComboboxCurrencyField
-                                 valueList={CurrencyCombobox}/>}/>
-
+                             <ComboboxCurrencyField valueList={CurrencyCombobox}
+                                                    actualStore={currencyRateStore}/>}
+                />
                 <FormRow label={""}
                          className="amount"
                          children={
@@ -43,7 +43,8 @@ const CurrencyExchangeSection = observer(() => {
                                  name="amountBYN"
                                  type="string"
                                  afterText="0"
-                             />}/>
+                             />}
+                />
             </div>
             {currencyRateStore.currencyListResult?.map((
                 {

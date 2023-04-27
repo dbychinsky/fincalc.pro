@@ -5,6 +5,9 @@ import {StoreContext} from "../../App";
 import {observer} from "mobx-react";
 import "./LoanEnterData.scss";
 import TitleTile from "../titleTile/TitleTile";
+import InputTextFieldEmptyMask from "../inputFieldEmptyMask/InputFieldEmptyMask";
+import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
+import {CurrencyCombobox} from "../../model/Currency";
 
 /**
  * Компонент ввода данных для расчета кредита
@@ -23,10 +26,12 @@ const LoanEnterData = observer(() => {
                          name="fullAmount"
                          type="number"/>}/>
             <FormRow label={"Валюта:"}
-                     children={<InputTextField value={loanStore.loanValuesEnter.currency}
-                                               changeHandler={loanStore.handleChange}
-                                               name="currency"
-                                               type="text"/>}/>
+                     className="currency"
+                     children={
+                         <ComboboxCurrencyField valueList={CurrencyCombobox}
+                                                actualStore={loanStore}/>}
+            />
+
             <FormRow label={"Процент:"}
                      children={<InputTextField
                          value={loanStore.loanValuesEnter.percent ? loanStore.loanValuesEnter.percent : ''}
