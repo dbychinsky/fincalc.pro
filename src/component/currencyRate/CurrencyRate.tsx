@@ -1,23 +1,31 @@
-import React, {FC} from 'react';
+import React, {FC, useContext, useEffect} from 'react';
 import TitleTile from "../titleTile/TitleTile";
 import {GetDate} from "../../util/GetDate";
 import {CiGlobe} from "react-icons/ci";
 import {CurrencyListFullName, CurrencyListShortName} from "../../model/Currency";
 import "./CurrencyRate.scss";
+import {StoreContext} from "../../App";
+import {observer} from "mobx-react";
 
-interface ICurrencyRate {
-    amountUSD: number,
-    amountEUR: number,
-    amountRUB: number,
-    amountPLN: number
-}
+const CurrencyRate = observer(() => {
 
-const CurrencyRate: FC<ICurrencyRate> = ({
-                                             amountUSD,
-                                             amountPLN,
-                                             amountRUB,
-                                             amountEUR
-                                         }) => {
+    const currencyRateStore = useContext(StoreContext).currencyRateStore;
+
+    /**
+     * Получаем данные за период
+     */
+    useEffect(() => {
+        currencyRateStore.getCurrencyPeriod();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    /**
+     * Получаем курсы валют на сегодня
+     */
+    useEffect(() => {
+        currencyRateStore.getCurrencyDay();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <div className="currencyRate">
             <TitleTile title={`Курсы на ${GetDate.dateSerialize(GetDate.convertDateToString(new Date()))}`}/>
@@ -34,7 +42,7 @@ const CurrencyRate: FC<ICurrencyRate> = ({
                         <span>{CurrencyListShortName.USD} - {CurrencyListShortName.BYN}</span>
                         <span></span>
                     </span>
-                <span className="amount">{amountUSD}</span>
+                <span className="amount">{currencyRateStore.amountUSD}</span>
 
             </div>
             <div className="value EUR">
@@ -44,7 +52,7 @@ const CurrencyRate: FC<ICurrencyRate> = ({
                        <span>{CurrencyListShortName.EUR} - {CurrencyListShortName.BYN}</span>
                         <span></span>
                     </span>
-                <span className="amount">{amountEUR} </span>
+                <span className="amount">{currencyRateStore.amountEUR} </span>
             </div>
             <div className="value RUB">
                 <span className="icon"></span>
@@ -52,7 +60,7 @@ const CurrencyRate: FC<ICurrencyRate> = ({
                         <span>{CurrencyListFullName.RUB}</span>
                         <span>100 {CurrencyListShortName.RUB} - {CurrencyListShortName.BYN}</span>
                     </span>
-                <span className="amount">{amountRUB}</span>
+                <span className="amount">{currencyRateStore.amountRUB}</span>
             </div>
             <div className="value PLN">
                 <span className="icon"></span>
@@ -60,10 +68,10 @@ const CurrencyRate: FC<ICurrencyRate> = ({
                         <span>{CurrencyListFullName.PLN}</span>
                         <span>10 {CurrencyListShortName.PLN} - {CurrencyListShortName.BYN}</span>
                     </span>
-                <span className="amount">{amountPLN}</span>
+                <span className="amount">{currencyRateStore.amountPLN}</span>
             </div>
         </div>
     );
-};
+});
 
 export default CurrencyRate;

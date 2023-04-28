@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
     Legend, ResponsiveContainer, AreaChart, Tooltip, XAxis, YAxis, Area
 } from "recharts";
@@ -7,10 +7,36 @@ import {observer} from "mobx-react";
 import {StoreContext} from "../../App";
 import TitleTile from "../titleTile/TitleTile";
 
+export type RateDynamicChart = {
+    day: string,
+    USD: number,
+    EUR: number,
+    RUB: number,
+    PLN: number
+}
 
 const AreaChartComponent = observer(() => {
 
     const areaChartStore = useContext(StoreContext).areaChartStore;
+    const currencyRateStore = useContext(StoreContext).currencyRateStore;
+
+    /**
+     * Конвертируем данные
+     */
+    useEffect(() => {
+            if (currencyRateStore.rateDynamicUSD !== undefined) {
+                areaChartStore.setRateDynamic(
+                    currencyRateStore.rateDynamicUSD,
+                    currencyRateStore.rateDynamicEUR,
+                    currencyRateStore.rateDynamicRUB,
+                    currencyRateStore.rateDynamicPLN,
+                );
+            } // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [currencyRateStore.rateDynamicUSD,
+            currencyRateStore.rateDynamicEUR,
+            currencyRateStore.rateDynamicRUB,
+            currencyRateStore.rateDynamicPLN]
+    );
 
     return (
         <div className="areaChartComponent">

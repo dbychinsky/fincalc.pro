@@ -1,7 +1,7 @@
 import {makeAutoObservable, runInAction} from "mobx";
-import {RateDynamicChart} from "../pages/CurrencyRatePage";
 import {ResponseCurrencyPeriod} from "../model/ResponseCurrencyPeriod";
 import {GetDate} from "../util/GetDate";
+import {RateDynamicChart} from "../component/charts/AreaChartComponent";
 
 /**
  * Store для работы с areaChart
