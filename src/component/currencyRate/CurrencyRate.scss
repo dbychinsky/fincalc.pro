@@ -7,7 +7,16 @@
     position: relative;
 
     .titleTile {
-        max-width: 80%;
+        width: 107px;
+
+        display: inline-block;
+        vertical-align: baseline;
+    }
+
+    .date {
+        width: 150px;
+        display: inline-block;
+        vertical-align: baseline;
     }
 
     .siteNBRB {
@@ -77,6 +86,7 @@
         &.RUB {
             @include valueTile(url("../../../public/RUB.svg"));
         }
+
         &.PLN {
             @include valueTile(url("../../../public/PLN.svg"));
         }

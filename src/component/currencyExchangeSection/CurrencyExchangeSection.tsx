@@ -7,7 +7,6 @@ import {StoreContext} from "../../App";
 import TitleTile from "../titleTile/TitleTile";
 import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
 import {CiRepeat} from "react-icons/ci";
-import InputTextFieldEmptyMask from "../inputFieldEmptyMask/InputFieldEmptyMask";
 import InputTextField from "../inputField/InputField";
 
 /**
@@ -38,14 +37,6 @@ const CurrencyExchangeSection = observer(() => {
                 <FormRow label={""}
                          className="amount"
                          children={
-                             // <InputTextFieldEmptyMask
-                             //     value={currencyRateStore.calcAmount}
-                             //     changeHandler={currencyRateStore.changeHandlerValue}
-                             //     name="amountBYN"
-                             //     type="string"
-                             //     afterText="0"
-                             // />
-
                              <InputTextField
                                  value={currencyRateStore.calcAmount}
                                  changeHandler={currencyRateStore.changeHandlerValue}
@@ -55,48 +46,51 @@ const CurrencyExchangeSection = observer(() => {
                          }
                 />
             </div>
-            {currencyRateStore.currencyListResult?.map((
-                {
-                    byn,
-                    eur,
-                    usd,
-                    rub,
-                    pln
-                }, index) => (
-                <div key={index} className="bottom">
-                    <span className="iconExchange"><CiRepeat/></span>
-                    <div className={`result ${getClassName(byn.toString())
-                        ? "equal"
-                        : ""}`}>
-                        <span className={CurrencyListShortName.BYN}>{CurrencyListFullName.BYN}:</span>
-                        <span>{byn.toFixed(2)}</span>
+            {currencyRateStore.calcAmount
+                ? currencyRateStore.currencyListCalculated?.map((
+                    {
+                        byn,
+                        eur,
+                        usd,
+                        rub,
+                        pln
+                    }, index) => (
+                    <div key={index} className="bottom">
+                        <span className="iconExchange"><CiRepeat/></span>
+                        <div className={`result ${getClassName(byn.toString())
+                            ? "equal"
+                            : ""}`}>
+                            <span className={CurrencyListShortName.BYN}>{CurrencyListFullName.BYN}:</span>
+                            <span>{byn.toFixed(2)}</span>
+                        </div>
+                        <div className={`result ${getClassName(usd.toString())
+                            ? "equal"
+                            : ""}`}>
+                            <span className={CurrencyListShortName.USD}>{CurrencyListFullName.USD}:</span>
+                            <span>{usd.toFixed(2)}</span>
+                        </div>
+                        <div className={`result ${getClassName(eur.toString())
+                            ? "equal"
+                            : ""}`}>
+                            <span className={CurrencyListShortName.EUR}>{CurrencyListFullName.EUR}:</span>
+                            <span>{eur.toFixed(2)}</span>
+                        </div>
+                        <div className={`result ${getClassName(rub.toString())
+                            ? "equal"
+                            : ""}`}>
+                            <span className={CurrencyListShortName.RUB}>{CurrencyListFullName.RUB}:</span>
+                            <span>{rub.toFixed(2)}</span>
+                        </div>
+                        <div className={`result ${getClassName(pln.toString())
+                            ? "equal"
+                            : ""}`}>
+                            <span className={CurrencyListShortName.PLN}>{CurrencyListFullName.PLN}:</span>
+                            <span>{pln.toFixed(2)}</span>
+                        </div>
                     </div>
-                    <div className={`result ${getClassName(usd.toString())
-                        ? "equal"
-                        : ""}`}>
-                        <span className={CurrencyListShortName.USD}>{CurrencyListFullName.USD}:</span>
-                        <span>{usd.toFixed(2)}</span>
-                    </div>
-                    <div className={`result ${getClassName(eur.toString())
-                        ? "equal"
-                        : ""}`}>
-                        <span className={CurrencyListShortName.EUR}>{CurrencyListFullName.EUR}:</span>
-                        <span>{eur.toFixed(2)}</span>
-                    </div>
-                    <div className={`result ${getClassName(rub.toString())
-                        ? "equal"
-                        : ""}`}>
-                        <span className={CurrencyListShortName.RUB}>{CurrencyListFullName.RUB}:</span>
-                        <span>{rub.toFixed(2)}</span>
-                    </div>
-                    <div className={`result ${getClassName(pln.toString())
-                        ? "equal"
-                        : ""}`}>
-                        <span className={CurrencyListShortName.PLN}>{CurrencyListFullName.PLN}:</span>
-                        <span>{pln.toFixed(2)}</span>
-                    </div>
-                </div>
-            ))}
+                ))
+                : ''
+            }
         </div>
     );
 });

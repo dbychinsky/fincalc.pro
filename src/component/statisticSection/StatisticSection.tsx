@@ -26,7 +26,7 @@ const MONTH_AMOUNT: number = 775;
 const StatisticSection = ({currencyAmountToday = 0}: StatisticSectionProps) => {
     const initialData: Amount = {total_amount: TOTAL_AMOUNT, month_amount: MONTH_AMOUNT};
 
-    const [startDate, setStartDate] = useState(new Date('2021-11-10'));
+    const [startDate, setDate] = useState(new Date('2021-11-10'));
     const [finishDate, setFinishDate] = useState(new Date());
     const [amount, setAmount] = useState<Amount>(initialData);
 
@@ -109,12 +109,12 @@ const StatisticSection = ({currencyAmountToday = 0}: StatisticSectionProps) => {
                      </>}/>
             <FormRow className="date"
                      label="Дата первого платежа"
-                     children={<DateField date={startDate} setStartDate={setStartDate}/>}
+                     children={<DateField date={startDate} setDate={setDate}/>}
             />
 
             <FormRow className="date"
                      label="Дата текущего платежа"
-                     children={<DateField date={finishDate} setStartDate={setFinishDate}/>}
+                     children={<DateField date={finishDate} setDate={setFinishDate}/>}
             />
         </div>
     );

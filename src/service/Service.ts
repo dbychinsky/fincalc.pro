@@ -18,7 +18,7 @@ export class Server implements IService {
     /**
      * Получение курса USD на сегодня
      */
-    getCurrencyDay(date: string = GetDate.convertDateToString(new Date()), cur_id: number = CurrencyCode.USD): Promise<ResponseCurrencyPeriod> {
+    getCurrencyDay(date: string, cur_id: number): Promise<ResponseCurrencyPeriod> {
         if (date) {
             return axios.get(`${backendServerUrl.RATES}/${cur_id}?ondate=${date}`)
                 .then(response => response.data)

@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect} from 'react';
+import React, {FC, useContext, useEffect, useState} from 'react';
 import TitleTile from "../titleTile/TitleTile";
 import {GetDate} from "../../util/GetDate";
 import {CiGlobe} from "react-icons/ci";
@@ -6,10 +6,13 @@ import {CurrencyListFullName, CurrencyListShortName} from "../../model/Currency"
 import "./CurrencyRate.scss";
 import {StoreContext} from "../../App";
 import {observer} from "mobx-react";
+import DateField from "../dateField/DateField";
+import FormRow from "../formRow/FormRow";
 
 const CurrencyRate = observer(() => {
 
     const currencyRateStore = useContext(StoreContext).currencyRateStore;
+    const [actualDate, setActualDate] = useState(new Date());
 
     /**
      * Получаем данные за период
@@ -23,12 +26,26 @@ const CurrencyRate = observer(() => {
      * Получаем курсы валют на сегодня
      */
     useEffect(() => {
-        currencyRateStore.getCurrencyDay();
+        currencyRateStore.getCurrencyDay(GetDate.convertDateToString(actualDate));
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [actualDate]);
+
+    /**
+     * Пересчитываем курс при выборе даты
+     */
+    useEffect(() => {
+        currencyRateStore.convertCurrency();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currencyRateStore.currencyListCalculated]);
+
     return (
         <div className="currencyRate">
-            <TitleTile title={`Курсы на ${GetDate.dateSerialize(GetDate.convertDateToString(new Date()))}`}/>
+            <TitleTile title={`Курсы на`}/>
+            <FormRow className="date"
+                     label=""
+                     children={<DateField date={actualDate} setDate={setActualDate}/>}
+            />
+
             <a href="https://www.nbrb.by/statistics/rates/ratesdaily.asp"
                title="currency"
                target="_blank" rel="noreferrer"

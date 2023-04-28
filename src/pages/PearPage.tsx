@@ -6,6 +6,7 @@ import {GetDate} from "../util/GetDate";
 import StatisticSection from "../component/statisticSection/StatisticSection";
 import "./PearPage.scss";
 import TitlePage from "../component/titlePage/TitlePage";
+import {CurrencyCode} from "../model/Currency";
 
 /**
  * Страница Строительства грушвиля
@@ -15,12 +16,12 @@ const PearPage = () => {
     const [currencyAmountTomorrow, setCurrencyAmountTomorrow] = useState<ResponseCurrencyPeriod>();
 
     useEffect(() => {
-        server.getCurrencyDay()
+        server.getCurrencyDay(GetDate.convertDateToString(new Date()), CurrencyCode.USD)
             .then((response) => setCurrencyAmountToday(response))
     }, []);
 
     useEffect(() => {
-        server.getCurrencyDay(GetDate.getTomorrowDate())
+        server.getCurrencyDay(GetDate.getTomorrowDate(), CurrencyCode.USD)
             .then((response) => setCurrencyAmountTomorrow(response))
     }, []);
 

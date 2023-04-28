@@ -4,15 +4,15 @@ import DatePicker from "react-datepicker";
 
 interface IDateField {
     date: Date,
-    setStartDate: (value: Date) => void
+    setDate: (value: Date) => void
 }
 
-const DateField: FC<IDateField> = ({date, setStartDate}) => {
+const DateField: FC<IDateField> = ({date, setDate}) => {
     return (
         <div className="dateField">
             <DatePicker
                 selected={date}
-                onChange={(date: Date) => setStartDate(date)}
+                onChange={(date: Date) => setDate(date)}
                 dateFormat="dd.MM.yyyy"/>
         </div>
     );
