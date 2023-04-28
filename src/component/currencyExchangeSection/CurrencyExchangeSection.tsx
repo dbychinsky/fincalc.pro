@@ -8,12 +8,18 @@ import TitleTile from "../titleTile/TitleTile";
 import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
 import {CiRepeat} from "react-icons/ci";
 import InputTextField from "../inputField/InputField";
+import {GetDate} from "../../util/GetDate";
+
+interface ICurrencyExchangeSection {
+    actualDate: Date
+}
 
 /**
  * Компонент конвертации валюты
- * @constructor
  */
-const CurrencyExchangeSection = observer(() => {
+const CurrencyExchangeSection = observer(({
+                                              actualDate
+                                          }: ICurrencyExchangeSection) => {
 
     const currencyRateStore = useContext(StoreContext).currencyRateStore;
 
@@ -26,7 +32,10 @@ const CurrencyExchangeSection = observer(() => {
     }
     return (
         <div className="currencyExchangeSection">
-            <TitleTile title="Конвертер"/>
+            <TitleTile
+                title={`Конвертация на ${GetDate.dateSerializeDDMMYY(
+                    GetDate.convertDateToString(actualDate)
+                )}`}/>
             <div className="top">
                 <FormRow label={""}
                          className="currency"

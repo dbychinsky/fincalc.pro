@@ -35,6 +35,15 @@ export class GetDate {
     }
 
     /**
+     * Сериализуем дату в нужный формат для вывода DD.MM.YY
+     * 23.03
+     * @param date
+     */
+    static dateSerializeDDMMYY(date: string): string {
+        return date.replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)
+    }
+
+    /**
      * Получаем завтрашнюю дату формата 2023-03-16
      */
     static getTomorrowDate(): string {

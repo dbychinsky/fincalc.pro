@@ -9,10 +9,17 @@ import {observer} from "mobx-react";
 import DateField from "../dateField/DateField";
 import FormRow from "../formRow/FormRow";
 
-const CurrencyRate = observer(() => {
+interface ICurrencyRate {
+    actualDate: Date,
+    setActualDate: (value: Date) => void
+}
+
+const CurrencyRate = observer(({
+                                   actualDate,
+                                   setActualDate
+                               }: ICurrencyRate) => {
 
     const currencyRateStore = useContext(StoreContext).currencyRateStore;
-    const [actualDate, setActualDate] = useState(new Date());
 
     /**
      * Получаем данные за период
@@ -36,7 +43,7 @@ const CurrencyRate = observer(() => {
     useEffect(() => {
         currencyRateStore.convertCurrency();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currencyRateStore.currencyListCalculated]);
+    }, []);
 
     return (
         <div className="currencyRate">
