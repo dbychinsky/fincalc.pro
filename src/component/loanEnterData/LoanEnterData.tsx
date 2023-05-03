@@ -18,7 +18,7 @@ const LoanEnterData = observer(() => {
 
     return (
         <div className="loanEnterData">
-            <TitleTile title="Расчет платежей по кредиту"/>
+            <TitleTile><span>Расчет платежей по кредиту</span></TitleTile>
             <FormRow label={"Кредитуемая сумма:"}
                      children={<InputTextField
                          value={loanStore.loanValuesEnter.fullAmount ? loanStore.loanValuesEnter.fullAmount : ''}

@@ -8,7 +8,7 @@ const DepositPage = () => {
         <div className="depositPage">
             <TitlePage title="Депозиты"/>
             <div className="depositEnterData">
-                <TitleTile title="Расчет процентов по депозиту"/>
+                <TitleTile><span>Расчет процентов по депозиту</span></TitleTile>
                 <p>Страница в разработке</p>
             </div>
         </div>

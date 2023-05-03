@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import TitleTile from "../titleTile/TitleTile";
 import {GetDate} from "../../util/GetDate";
 import {CiGlobe} from "react-icons/ci";
@@ -47,7 +47,7 @@ const CurrencyRate = observer(({
 
     return (
         <div className="currencyRate">
-            <TitleTile title={`Курсы на`}/>
+            <TitleTile><span>Курсы на</span></TitleTile>
             <FormRow className="date"
                      label=""
                      children={<DateField date={actualDate} setDate={setActualDate}/>}
@@ -57,7 +57,6 @@ const CurrencyRate = observer(({
                title="currency"
                target="_blank" rel="noreferrer"
                className="siteNBRB">
-                <CiGlobe/>
             </a>
             <div className="value USD">
                 <span className="icon"></span>

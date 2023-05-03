@@ -40,7 +40,7 @@ const AreaChartComponent = observer(() => {
 
     return (
         <div className="areaChartComponent">
-            <TitleTile title="Графики изменения курсов валют за периоды"/>
+            <TitleTile><span>Графики изменения курсов валют за периоды</span></TitleTile>
             <p className="title">Период: 7 дней</p>
             <div className="chartWrapper">
                 <ResponsiveContainer>

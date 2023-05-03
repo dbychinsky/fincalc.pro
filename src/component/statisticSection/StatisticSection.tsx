@@ -62,7 +62,7 @@ const StatisticSection = ({currencyAmountToday = 0}: StatisticSectionProps) => {
     }
     return (
         <div className="statisticSection">
-            <TitleTile title="Рассрочка по строительству"/>
+            <TitleTile><span>Рассрочка по строительству</span></TitleTile>
             <FormRow label={"Общая сумма рассрочки (USD):"}
                      children={<InputTextField value={amount.total_amount.toString()}
                                                changeHandler={setAmountFromField}

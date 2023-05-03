@@ -30,12 +30,13 @@ const CurrencyExchangeSection = observer(({
         }
         return result
     }
+
     return (
         <div className="currencyExchangeSection">
-            <TitleTile
-                title={`Конвертация на ${GetDate.dateSerializeDDMMYY(
-                    GetDate.convertDateToString(actualDate)
-                )}`}/>
+            <TitleTile>
+                <span>Конвертация на</span>
+                <span>{GetDate.dateSerializeDDMMYY(GetDate.convertDateToString(actualDate))}</span>
+            </TitleTile>
             <div className="top">
                 <FormRow label={""}
                          className="currency"

@@ -1,14 +1,10 @@
-import React, {FC} from 'react';
+import React, {ReactNode} from 'react';
 import "./TitleTile.scss";
 
-interface ITitleTile {
-    title: string
-}
-
-const TitleTile: FC<ITitleTile> = ({title}) => {
+const TitleTile = (props: { children: ReactNode }) => {
     return (
         <h2 className="titleTile">
-            {title}
+            {props.children}
         </h2>
     );
 };
