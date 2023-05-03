@@ -79,32 +79,31 @@ export class CurrencyRateStore {
      * Получаем курсы валют на выбранную дату
      */
     public getCurrencyDay(date: string) {
-        server.getCurrencyDay(date, CurrencyCode.USD)
-            .then((currency) =>
-                runInAction(() => {
-                    this.amountUSD = currency.Cur_OfficialRate;
-                })
-            )
-            .then(() => this.convertCurrency());
-        server.getCurrencyDay(date, CurrencyCode.EUR)
-            .then((currency) =>
-                runInAction(() => {
-                    this.amountEUR = currency.Cur_OfficialRate
-                }))
-            .then(() => this.convertCurrency());
-        server.getCurrencyDay(date, CurrencyCode.RUB)
-            .then((currency) =>
-                runInAction(() => {
-                    this.amountRUB = currency.Cur_OfficialRate
-                }))
-            .then(() => this.convertCurrency());
+        Promise.all([
+            server.getCurrencyDay(date, CurrencyCode.USD)
+                .then((currency) =>
+                    runInAction(() => {
+                        this.amountUSD = currency.Cur_OfficialRate;
+                    })),
+            server.getCurrencyDay(date, CurrencyCode.EUR)
+                .then((currency) =>
+                    runInAction(() => {
+                        this.amountEUR = currency.Cur_OfficialRate
+                    })),
+            server.getCurrencyDay(date, CurrencyCode.RUB)
+                .then((currency) =>
+                    runInAction(() => {
+                        this.amountRUB = currency.Cur_OfficialRate
+                    })),
+            server.getCurrencyDay(date, CurrencyCode.PLN)
+                .then((currency) =>
+                    runInAction(() => {
+                        this.amountPLN = currency.Cur_OfficialRate
+                    }))
+        ]).then(() => {
+            this.convertCurrency()
+        });
 
-        server.getCurrencyDay(date, CurrencyCode.PLN)
-            .then((currency) =>
-                runInAction(() => {
-                    this.amountPLN = currency.Cur_OfficialRate
-                }))
-            .then(() => this.convertCurrency());
     }
 
     /**
@@ -130,7 +129,7 @@ export class CurrencyRateStore {
             .then((response =>
                 runInAction(() => {
                     this.rateDynamicPLN = response
-                })))
+                })));
     }
 
     /**
