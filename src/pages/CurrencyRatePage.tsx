@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./CurrencyRatePage.scss";
 import TitlePage from "../component/titlePage/TitlePage";
 import AreaChartComponent from "../component/charts/AreaChartComponent";

@@ -78,28 +78,33 @@ export class CurrencyRateStore {
     /**
      * Получаем курсы валют на выбранную дату
      */
-    public getCurrencyDay(date:string) {
+    public getCurrencyDay(date: string) {
         server.getCurrencyDay(date, CurrencyCode.USD)
             .then((currency) =>
                 runInAction(() => {
-                    this.amountUSD = currency.Cur_OfficialRate
+                    this.amountUSD = currency.Cur_OfficialRate;
                 })
-            );
+            )
+            .then(() => this.convertCurrency());
         server.getCurrencyDay(date, CurrencyCode.EUR)
             .then((currency) =>
                 runInAction(() => {
                     this.amountEUR = currency.Cur_OfficialRate
-                }));
+                }))
+            .then(() => this.convertCurrency());
         server.getCurrencyDay(date, CurrencyCode.RUB)
             .then((currency) =>
                 runInAction(() => {
                     this.amountRUB = currency.Cur_OfficialRate
-                }));
+                }))
+            .then(() => this.convertCurrency());
+
         server.getCurrencyDay(date, CurrencyCode.PLN)
             .then((currency) =>
                 runInAction(() => {
                     this.amountPLN = currency.Cur_OfficialRate
-                }));
+                }))
+            .then(() => this.convertCurrency());
     }
 
     /**
@@ -135,7 +140,6 @@ export class CurrencyRateStore {
         switch (this.currencyValue) {
             case CurrencyListShortName.USD:
                 this.currencyListCalculated = this.convertCurrencyUSD();
-
                 break;
             case CurrencyListShortName.BYN:
                 this.currencyListCalculated = this.convertCurrencyBYN();
@@ -164,7 +168,6 @@ export class CurrencyRateStore {
             rub: (Number(this.calcAmount) * this.amountUSD) * (100 / this.amountRUB),
             pln: (Number(this.calcAmount) * this.amountUSD) * (10 / this.amountPLN)
         });
-
         return currencyListLocal
     }
 

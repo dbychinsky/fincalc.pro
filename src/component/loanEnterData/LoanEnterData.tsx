@@ -5,7 +5,6 @@ import {StoreContext} from "../../App";
 import {observer} from "mobx-react";
 import "./LoanEnterData.scss";
 import TitleTile from "../titleTile/TitleTile";
-import InputTextFieldEmptyMask from "../inputFieldEmptyMask/InputFieldEmptyMask";
 import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
 import {CurrencyCombobox} from "../../model/Currency";
 

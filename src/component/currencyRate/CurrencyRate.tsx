@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import TitleTile from "../titleTile/TitleTile";
 import {GetDate} from "../../util/GetDate";
-import {CiGlobe} from "react-icons/ci";
 import {CurrencyListFullName, CurrencyListShortName} from "../../model/Currency";
 import "./CurrencyRate.scss";
 import {StoreContext} from "../../App";
@@ -30,20 +29,12 @@ const CurrencyRate = observer(({
     }, []);
 
     /**
-     * Получаем курсы валют на сегодня
+     * Получаем курсы валют на дату
      */
     useEffect(() => {
         currencyRateStore.getCurrencyDay(GetDate.convertDateToString(actualDate));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [actualDate]);
-
-    /**
-     * Пересчитываем курс при выборе даты
-     */
-    useEffect(() => {
-        currencyRateStore.convertCurrency();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div className="currencyRate">

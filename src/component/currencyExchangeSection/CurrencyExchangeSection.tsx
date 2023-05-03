@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import FormRow from "../formRow/FormRow";
 import "./CurrencyExchangeSection.scss";
 import {CurrencyCombobox, CurrencyListFullName, CurrencyListShortName} from "../../model/Currency";
@@ -35,7 +35,8 @@ const CurrencyExchangeSection = observer(({
         <div className="currencyExchangeSection">
             <TitleTile>
                 <span>Конвертация на</span>
-                <span>{GetDate.dateSerializeDDMMYY(GetDate.convertDateToString(actualDate))}</span>
+                <span
+                    className="smallText">{GetDate.dateSerializeDDMMYY(GetDate.convertDateToString(actualDate))}</span>
             </TitleTile>
             <div className="top">
                 <FormRow label={""}
