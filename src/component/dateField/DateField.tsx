@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import "./DateField.scss";
-import DatePicker from "react-datepicker";
+import ru from 'date-fns/locale/ru';
+import DatePicker, {registerLocale} from "react-datepicker";
 
 interface IDateField {
     date: Date,
@@ -8,12 +9,14 @@ interface IDateField {
 }
 
 const DateField: FC<IDateField> = ({date, setDate}) => {
+    registerLocale('ru', ru)
     return (
         <div className="dateField">
             <DatePicker
                 selected={date}
                 onChange={(date: Date) => setDate(date)}
-                dateFormat="dd.MM.yyyy"/>
+                dateFormat="dd.MM.yyyy"
+                locale="ru"/>
         </div>
     );
 };

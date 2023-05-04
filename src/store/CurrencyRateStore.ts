@@ -103,7 +103,6 @@ export class CurrencyRateStore {
         ]).then(() => {
             this.convertCurrency()
         });
-
     }
 
     /**

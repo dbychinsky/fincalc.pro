@@ -1,11 +1,11 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import FormRow from "../formRow/FormRow";
 import "./CurrencyExchangeSection.scss";
 import {CurrencyCombobox, CurrencyListFullName, CurrencyListShortName} from "../../model/Currency";
 import {observer} from "mobx-react";
 import {StoreContext} from "../../App";
 import TitleTile from "../titleTile/TitleTile";
-import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
+import ComboboxCurrencyField from "../comboboxCurrencyField/ComboboxCurrencyField";
 import {CiRepeat} from "react-icons/ci";
 import InputTextField from "../inputField/InputField";
 import {GetDate} from "../../util/GetDate";

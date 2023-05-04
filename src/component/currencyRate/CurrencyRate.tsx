@@ -47,7 +47,7 @@ const CurrencyRate = observer(({
             <a href="https://www.nbrb.by/statistics/rates/ratesdaily.asp"
                title="currency"
                target="_blank" rel="noreferrer"
-               className="siteNBRB">
+               className="siteNBRB">по нацбанку РБ
             </a>
             <div className="value USD">
                 <span className="icon"></span>

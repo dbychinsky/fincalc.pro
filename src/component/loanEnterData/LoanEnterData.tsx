@@ -5,7 +5,7 @@ import {StoreContext} from "../../App";
 import {observer} from "mobx-react";
 import "./LoanEnterData.scss";
 import TitleTile from "../titleTile/TitleTile";
-import ComboboxCurrencyField from "../comboboxFieldCurrency/ComboboxCurrencyField";
+import ComboboxCurrencyField from "../comboboxCurrencyField/ComboboxCurrencyField";
 import {CurrencyCombobox} from "../../model/Currency";
 
 /**
@@ -19,6 +19,7 @@ const LoanEnterData = observer(() => {
         <div className="loanEnterData">
             <TitleTile><span>Расчет платежей по кредиту</span></TitleTile>
             <FormRow label={"Кредитуемая сумма:"}
+                     className="amount"
                      children={<InputTextField
                          value={loanStore.loanValuesEnter.fullAmount ? loanStore.loanValuesEnter.fullAmount : ''}
                          changeHandler={loanStore.handleChange}

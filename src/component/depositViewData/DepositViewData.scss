@@ -1,0 +1,104 @@
+@import "src/parameters";
+@import "src/font";
+
+.depositViewData {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px;
+
+    .annuity {
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 20px;
+
+        position: relative;
+
+        .title {
+            margin: 0 0 10px 0;
+            @include fontBold;
+
+            span {
+                display: inline-block;
+                font-size: $font-size-smallest;
+
+            }
+        }
+        .static {
+            div {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: baseline;
+
+                .title {
+                    font-size: $font-size-smaller;
+                    flex-grow: 3;
+
+                }
+
+                .value {
+                    font-size: $font-size-smaller;
+                    flex-grow: 2;
+
+
+                    text-align: right;
+                    @include fontBold;
+                    color: $color-green;
+                }
+
+                .currency {
+                    font-size: $font-size-the-smallest;
+                    padding-left: 3px;
+                    width: 20px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .tableHead {
+        .tableCell {
+            @include fontBold;
+            font-size: $font-size-smaller;
+            border-bottom: 1px solid $color-gray-light;
+
+        }
+    }
+
+    .tableBody {
+        border-bottom: 1px solid $color-gray-light;
+
+        &:last-child {
+            border: none;
+            @include fontBold;
+        }
+    }
+
+    .tableBody, .tableHead {
+        display: flex;
+        flex-direction: row;
+        color: $color-black-light;
+        padding: 5px 5px 5px 0;
+
+        .month {
+            width: 20%;
+        }
+
+        .profitMonth {
+            width: 30%;
+            text-align: right;
+        }
+
+        .depositAmount {
+            width: 50%;
+            text-align: right;
+
+        }
+    }
+
+    .errorText {
+        margin: 25px 0 20px;
+
+        color: $color-red;
+        font-size: $font-size-smaller;
+    }
+}

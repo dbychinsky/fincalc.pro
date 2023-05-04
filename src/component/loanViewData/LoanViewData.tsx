@@ -59,17 +59,15 @@ const LoanViewData = observer(() => {
                             titleSecond={"Дифференцированный"}
                             tabSecond={
                                 <div className="differ">
-                                    <p className="title"><span>Месяц равен 30 дням</span></p>
                                     <button className={`buttonOpen  ${isOpenTable ? 'close' : 'open'}`}
                                             onClick={showFullTable}><BiExpandVertical/>
                                     </button>
 
-
                                     <div className="table">
                                         <div className="headerTable">
-                                            <span className="tableCell month">Месяц</span>
+                                            <span className="tableCell month">№</span>
                                             <span className="tableCell percent">Процент</span>
-                                            <span className="tableCell loan">Долг</span>
+                                            <span className="tableCell loan">Осн. долг</span>
                                             <span className="tableCell payment">Платеж</span>
                                         </div>
 
@@ -89,7 +87,9 @@ const LoanViewData = observer(() => {
                                     </div>
                                 </div>
                             }/>}
-            <p className="description"><span>*</span>Расчет приблизительный</p>
+            <p className="description"><span>* </span>Месяц равен 30 дням</p>
+            <p className="description"><span>** </span>Расчет носит ознкомительный характер и
+            является приблизительным</p>
         </div>
     );
 });

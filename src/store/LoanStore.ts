@@ -33,7 +33,7 @@ type LoanValuesViewDifferent = {
 
 
 /**
- * Store для работы с areaChart
+ * Store для работы с LoanStore
  */
 export class LoanStore {
 
@@ -78,6 +78,9 @@ export class LoanStore {
         });
     }
 
+    /**
+     * Метод получения значения из select
+     */
     public changeHandlerCurrencyHandle(value: string) {
         runInAction(() => {
             this.currencyValue = value;
@@ -145,7 +148,8 @@ export class LoanStore {
         const countMonth = this.loanValuesEnter.countMonth;
 
 
-        let localLoanValuesViewDifferent: LoanValuesViewDifferent[] = []
+        let localLoanValuesViewDifferent: LoanValuesViewDifferent[] = [];
+
         /**
          * Ежемесячный платеж
          */

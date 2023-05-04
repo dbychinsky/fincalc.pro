@@ -1,8 +1,4 @@
-@import "src/parameters";
-@import "src/font";
-@import "src/mixins";
-
-.loanEnterData {
+.depositEnterData {
     .formRow {
         &.amount {
             width: 60%;

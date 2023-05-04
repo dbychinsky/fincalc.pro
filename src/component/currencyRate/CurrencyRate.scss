@@ -14,25 +14,24 @@
     }
 
     .date {
-        width: 127px;
+        width: 180px;
         display: inline-block;
         vertical-align: baseline;
+        padding-right: 10px;
     }
 
     .siteNBRB {
-        $size:40px;
-        position: absolute;
-        top: 18px;
-        left: 256px;
-
-        height: $size;
-        width: $size;
+        box-sizing: border-box;
+        padding-right: 21px;
+        margin-bottom: 5px;
+        display: inline-block;
 
         color: $color-green;
-        font-size: $font-size-the-biggest;
+        font-size: $font-size-normal;
 
-        background: url("../../../public/nacBank.svg");
-        background-size: $size;
+        background: url("../../../public/currencyRight.svg") no-repeat center right;
+        background-size: 21px;
+        text-decoration: none;
 
     }
 
