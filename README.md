@@ -2,7 +2,7 @@
 
 ## Скриншоты
 
-<div style="display: flex; flex-flow: row wrap; gap: 10px;">
+<div style="display: flex; flex-flow: row wrap; gap: 30px;">
 <img src="/screens/Screenshot_20241222_121017_Chrome.jpg" alt="Главный экран" width="200">
 <img src="/screens/Screenshot_20241222_121040_Chrome.jpg" alt="Главный экран" width="200">
 <img src="/screens/Screenshot_20241222_121102_Chrome.jpg" alt="Главный экран" width="200">
