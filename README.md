@@ -1,5 +1,4 @@
-# loan-calc
+# Валютный калькулятор
 
-https://www.whitelabeldevelopers.ru/articles/razrabotka-progressivnogo-veb-prilozheniya-(pwa)-s-pomoshhyu-react
-
-https://www.knowledgehut.com/blog/web-development/build-progressive-web-app-with-react-js
+## Скриншоты
+![Главный экран](/screens/Screenshot_20241222_121017_Chrome.jpg)
